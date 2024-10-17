@@ -63,6 +63,9 @@ local function get_function_parameter(function_name, lua_content)
 
     local param = function_line:match("%((.-)%)")
     if param then
+        if #param == 0 then
+            return {}
+        end
         local param_list = split(param, ",")
         return param_list
     end
